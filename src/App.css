@@ -1,0 +1,54 @@
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.card {
+	padding: 2em;
+}
+
+.read-the-docs {
+	color: #888;
+}
+.todo {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	align-items: stretch;
+	gap: 40px 10px;
+}
+.todo__item {
+	padding: 5px;
+	border: 1px solid #888;
+	min-height: 50px;
+	position: relative;
+}
+.delineBtn {
+	position: absolute;
+	right: 0;
+	top: -30px;
+	margin-bottom: 0;
+	width: 30px;
+	height: 35px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0;
+}
+button {
+	margin-bottom: 50px;
+}
+.todo__item span {
+	position: absolute;
+	top: -25px;
+	left: 0;
+	color: #51066e;
+	width: 100%;
+	background-color: #fff;
+	font-size: 18px;
+}
+h1 {
+	margin-bottom: 30px;
+}
