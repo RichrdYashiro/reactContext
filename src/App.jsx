@@ -1,5 +1,5 @@
 import "./App.css";
-import TasksContext from "./TasksContext";
+import TasksContext from "./context/TasksContext";
 import TaskItem from "./components/TaskItem";
 import TaskSettings from "./components/TaskSettings";
 import useTasks from "./components/useTasks";
