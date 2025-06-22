@@ -9,12 +9,13 @@ const TaskCRUD = () => {
 	const [newTaskTitle, setNewTaskTitle] = useState("");
 	const [searchPhrase, setSearchPhrase] = useState("");
 	const [sortAlphabetically, setSortAlphabetically] = useState(false);
+	const TODO_URL = "http://localhost:3000/todos";
 	const refreshTask = () => {
 		setRefreshTasksFlag((prev) => !prev);
 	};
 
 	useEffect(() => {
-		fetch("http://localhost:3000/todos")
+		fetch(TODO_URL)
 			.then((response) => response.json())
 			.then((loadTask) => {
 				setTasks(loadTask);
@@ -44,7 +45,7 @@ const TaskCRUD = () => {
 	const requestTask = () => {
 		if (!newTaskTitle.trim()) return;
 		setBlockButton(true);
-		fetch("http://localhost:3000/todos", {
+		fetch(TODO_URL, {
 			method: "POST",
 			headers: { "Content-type": "application/json;charset=utf-8" },
 			body: JSON.stringify({
@@ -61,7 +62,7 @@ const TaskCRUD = () => {
 
 	const deleteTask = (id) => {
 		setBlockButton(true);
-		fetch(`http://localhost:3000/todos/${id}`, {
+		fetch(`${TODO_URL}/${id}`, {
 			method: "DELETE",
 		})
 			.then((rawResponse) => rawResponse.json())
@@ -72,7 +73,7 @@ const TaskCRUD = () => {
 	};
 	const reworkBtn = (id) => {
 		setBlockButton(true);
-		fetch(`http://localhost:3000/todos/${id}`, {
+		fetch(`${TODO_URL}/${id}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json;charset=utf-8" },
 			body: JSON.stringify({
