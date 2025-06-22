@@ -1,10 +1,10 @@
 import "./App.css";
 import TasksContext from "./TasksContext";
 import TaskItem from "./components/TaskItem";
-import TaskSettings from "./services/TaskSettings";
-import TaskCRUD from "./services/TaskCRUD";
+import TaskSettings from "./components/TaskSettings";
+import useTasks from "./components/useTasks";
 function App() {
-	const taskData = TaskCRUD();
+	const taskData = useTasks();
 	return (
 		<TasksContext.Provider value={taskData}>
 			<h1>Список дела на React</h1>

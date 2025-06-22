@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const TaskCRUD = () => {
+const useTasks = () => {
 	const [tasks, setTasks] = useState([]);
 	const [filteredTasks, setFilteredTasks] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -15,15 +15,18 @@ const TaskCRUD = () => {
 	};
 
 	useEffect(() => {
+		setIsLoading(true);
 		fetch(TODO_URL)
 			.then((response) => response.json())
 			.then((loadTask) => {
 				setTasks(loadTask);
 
 				setFilteredTasks(loadTask);
-				setIsLoading(false);
 			})
-			.catch((error) => console.error("Ошибка получения данных", error));
+			.catch((error) => console.error("Ошибка получения данных", error))
+			.finally(() => {
+				setIsLoading(false);
+			});
 	}, [refreshTasksFlag]);
 
 	useEffect(() => {
@@ -104,4 +107,4 @@ const TaskCRUD = () => {
 		isLoading,
 	};
 };
-export default TaskCRUD;
+export default useTasks;
